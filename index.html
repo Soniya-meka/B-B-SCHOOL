@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bell & Bennett High School — School of IIT, NEET & IAS Foundation</title>
+<meta name="description" content="Bell & Bennett High School, Addanki — 33+ years of academic excellence with IIT, NEET & IAS Foundation programs. Admissions open 2026-27." />
+<link rel="icon" href="https://res.cloudinary.com/dg5ct7fys/image/upload/v1779531044/logo_bbihzx.jpg" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{
+    --royal:#0A1F5C; --navy:#06153A; --gold:#F4B400; --gold-light:#FFD54F;
+  }
+  *{font-family:'Poppins',sans-serif}
+  h1,h2,h3,.serif{font-family:'Cinzel',serif;letter-spacing:.5px}
+  body{background:#06153A;color:#fff;overflow-x:hidden}
+  .gold-text{background:linear-gradient(135deg,#F4B400,#FFD54F,#F4B400);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .gold-bg{background:linear-gradient(135deg,#F4B400 0%,#FFD54F 50%,#F4B400 100%)}
+  .royal-bg{background:linear-gradient(135deg,#06153A 0%,#0A1F5C 50%,#06153A 100%)}
+  .glass{background:rgba(10,31,92,.35);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(244,180,0,.25)}
+  .glass-dark{background:rgba(6,21,58,.7);backdrop-filter:blur(16px);border:1px solid rgba(244,180,0,.2)}
+  .gold-border{position:relative}
+  .gold-border::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#F4B400,transparent 40%,transparent 60%,#FFD54F);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+  .glow{box-shadow:0 0 40px rgba(244,180,0,.25),0 0 80px rgba(244,180,0,.1)}
+  .glow-hover{transition:all .4s ease}
+  .glow-hover:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(244,180,0,.4),0 0 80px rgba(244,180,0,.2)}
+  .hero-bg{background:linear-gradient(135deg,rgba(6,21,58,.85),rgba(10,31,92,.75)),url('assets/hero.jpg') center/cover}
+  .light-streak{position:absolute;background:linear-gradient(90deg,transparent,rgba(244,180,0,.4),transparent);height:2px;width:300px;animation:streak 8s linear infinite}
+  @keyframes streak{0%{transform:translateX(-300px) rotate(-30deg);opacity:0}50%{opacity:1}100%{transform:translateX(110vw) rotate(-30deg);opacity:0}}
+  .particle{position:absolute;width:6px;height:6px;background:#F4B400;border-radius:50%;box-shadow:0 0 12px #F4B400;animation:float 6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0) translateX(0);opacity:.3}50%{transform:translateY(-40px) translateX(20px);opacity:1}}
+  @keyframes pulse-gold{0%,100%{box-shadow:0 0 20px rgba(244,180,0,.4)}50%{box-shadow:0 0 40px rgba(244,180,0,.8),0 0 80px rgba(244,180,0,.3)}}
+  .pulse-gold{animation:pulse-gold 2.5s ease-in-out infinite}
+  .btn-gold{background:linear-gradient(135deg,#F4B400,#FFD54F);color:#06153A;font-weight:700;padding:14px 32px;border-radius:50px;transition:all .3s;display:inline-flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(244,180,0,.4)}
+  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(244,180,0,.6)}
+  .btn-outline-gold{border:2px solid #F4B400;color:#F4B400;padding:12px 30px;border-radius:50px;font-weight:600;transition:all .3s;display:inline-flex;align-items:center;gap:10px}
+  .btn-outline-gold:hover{background:#F4B400;color:#06153A}
+  .section-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:700;text-align:center}
+  .gold-divider{width:80px;height:4px;background:linear-gradient(90deg,#F4B400,#FFD54F);margin:16px auto 40px;border-radius:2px}
+  .card-hover{transition:all .4s cubic-bezier(.4,0,.2,1)}
+  .card-hover:hover{transform:translateY(-10px) scale(1.02)}
+  .nav-link{position:relative;padding:8px 0;transition:color .3s}
+  .nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#F4B400;transition:width .3s}
+  .nav-link:hover{color:#F4B400}
+  .nav-link:hover::after{width:100%}
+  .loader{position:fixed;inset:0;background:#06153A;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s}
+  .loader-circle{width:80px;height:80px;border:4px solid rgba(244,180,0,.2);border-top-color:#F4B400;border-radius:50%;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .timeline-dot{width:16px;height:16px;background:#F4B400;border-radius:50%;box-shadow:0 0 16px #F4B400}
+  .topper-card{background:linear-gradient(160deg,rgba(10,31,92,.8),rgba(6,21,58,.9));border:1px solid rgba(244,180,0,.3)}
+  .gallery-item{overflow:hidden;border-radius:16px;position:relative;cursor:pointer}
+  .gallery-item img{transition:transform .6s ease}
+  .gallery-item:hover img{transform:scale(1.1)}
+  .gallery-item .label{position:absolute;bottom:-50px;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(6,21,58,.95),transparent);transition:bottom .3s}
+  .gallery-item:hover .label{bottom:0}
+  .scroll-reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+  .scroll-reveal.visible{opacity:1;transform:translateY(0)}
+  .whatsapp-float{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:100;animation:pulse-gold 2s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="text-center">
+    <div class="loader-circle mx-auto mb-4"></div>
+    <p class="gold-text text-xl serif">Bell & Bennett</p>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 py-4">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-yellow-500/30 shadow-lg bg-white flex items-center justify-center">
+        <img src="https://res.cloudinary.com/dg5ct7fys/image/upload/v1779531044/logo_bbihzx.jpg" alt="Bell & Bennett" class="w-full h-full object-cover scale-[1.15]">
+      </div>
+      <div>
+        <div class="serif text-xl gold-text font-bold leading-tight">Bell & Bennett</div>
+        <div class="text-xs text-white/70">High School • Est. 1993</div>
+      </div>
+    </div>
+    <div class="hidden lg:flex items-center gap-8 text-sm">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#programs" class="nav-link">Programs</a>
+      <a href="#facilities" class="nav-link">Facilities</a>
+      <a href="#gallery" class="nav-link">Images</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <a href="#admissions" class="btn-gold !py-2 !px-5 !text-sm hidden md:inline-flex">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+    <button class="lg:hidden text-2xl text-gold-light" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden glass-dark mt-2 mx-4 rounded-2xl p-6 space-y-3">
+    <a href="#home" class="block">Home</a><a href="#about" class="block">About</a>
+    <a href="#programs" class="block">Programs</a>
+    <a href="#facilities" class="block">Facilities</a>
+    <a href="#gallery" class="block">Images</a>
+    <a href="#contact" class="block">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero-bg min-h-screen relative flex items-center pt-24 pb-16 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="particle" style="top:20%;left:10%"></div>
+    <div class="particle" style="top:60%;left:80%;animation-delay:1s"></div>
+    <div class="particle" style="top:30%;left:70%;animation-delay:2s"></div>
+    <div class="particle" style="top:80%;left:30%;animation-delay:3s"></div>
+    <div class="particle" style="top:50%;left:50%;animation-delay:4s"></div>
+    <div class="light-streak" style="top:25%"></div>
+    <div class="light-streak" style="top:65%;animation-delay:4s"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+    <div data-aos="fade-right">
+      <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6">
+        <span class="w-2 h-2 bg-gold-light rounded-full" style="background:#F4B400"></span>
+        <span class="text-sm text-gold-light" style="color:#FFD54F">Admissions Open 2026–27</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+        Building <span class="gold-text">Excellence</span><br>Since <span class="gold-text">1993</span>
+      </h1>
+      <p class="text-xl text-white/90 mb-3 serif">Bell & Bennett High School</p>
+      <p class="text-lg text-white/70 mb-2">School of IIT, NEET & IAS Foundation</p>
+      <p class="italic gold-text mb-8">"A Legacy of Excellence, A Future of Success"</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#admissions" class="btn-gold pulse-gold">Apply for Admission <i class="fa-solid fa-graduation-cap"></i></a>
+        <a href="#contact" class="btn-outline-gold">Contact Us</a>
+      </div>
+    </div>
+    <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-6 text-center glow-hover">
+        <div class="text-4xl font-bold gold-text counter" data-target="33">0</div>
+        <div class="text-sm text-white/80 mt-2">Years of Excellence</div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center glow-hover">
+        <div class="text-4xl font-bold gold-text counter" data-target="1000">0</div>
+        <div class="text-sm text-white/80 mt-2">Students</div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center glow-hover">
+        <div class="text-4xl font-bold gold-text">#1</div>
+        <div class="text-sm text-white/80 mt-2">District Rank</div>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center glow-hover">
+        <div class="text-3xl font-bold gold-text">State</div>
+        <div class="text-sm text-white/80 mt-2">Rank Achievers</div>
+      </div>
+      <div class="col-span-2 glass rounded-2xl p-6 text-center glow-hover">
+        <div class="flex items-center justify-around">
+          <div><i class="fa-solid fa-atom text-2xl gold-text"></i><div class="text-xs mt-1">IIT</div></div>
+          <div><i class="fa-solid fa-stethoscope text-2xl gold-text"></i><div class="text-xs mt-1">NEET</div></div>
+          <div><i class="fa-solid fa-landmark text-2xl gold-text"></i><div class="text-xs mt-1">IAS</div></div>
+          <div><i class="fa-solid fa-microchip text-2xl gold-text"></i><div class="text-xs mt-1">AI</div></div>
+        </div>
+        <div class="text-xs text-white/70 mt-3">Foundation Programs</div>
+      </div>
+    </div>
+  </div>
+  <a href="#toppers" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold-light animate-bounce" style="color:#FFD54F"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+</section>
+
+
+
+<!-- ABOUT -->
+<section id="about" class="py-24 relative" style="background:linear-gradient(180deg,#06153A,#0A1F5C)">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
+      <div data-aos="fade-right">
+        <span class="gold-text serif tracking-widest text-sm">ABOUT OUR SCHOOL</span>
+        <h2 class="text-4xl md:text-5xl font-bold my-4">A Legacy of <span class="gold-text">Knowledge & Values</span></h2>
+        <div class="w-20 h-1 gold-bg rounded-full mb-6"></div>
+        <div class="text-white/80 leading-relaxed text-sm md:text-base space-y-4">
+          <p><strong>BELL AND BENNETT</strong> located at Addanki in Prakasam District, A.P. is an English Medium Co-educational School recognized by Government of A.P. founded in 1993 with 28 students, 2 staff on roll and has consistently grown into a big family of around 1000 students and a good number of teaching and non-teaching staff as on today. BELL AND BENNETT SCHOOL imparts international standards by adopting the latest methodologies, implementing innovative measures and ideas.</p>
+          <p>From its inception onwards the school was successful in retaining as an educational institution with a difference by way of offering a host of features and training programs aimed at improving the academic, social, intellectual and behavioural skills of students.</p>
+          <p>The school offers IIT Foundation courses from classes III onwards. With a view to making education friendly and interesting to the first time school goers, the school has designed Smart Kindergarten with latest technologies and innovative. There is a comprehensive academic schedule for LKG and UKG which reduces the burden on children, teachers and parents and makes learning a stimulating and rewarding experience.</p>
+        </div>
+      </div>
+      
+      <div data-aos="fade-left" class="relative">
+        <div class="gold-border rounded-3xl overflow-hidden shadow-2xl relative z-10 glow">
+          <img src="https://res.cloudinary.com/dg5ct7fys/image/upload/v1779519692/Day_2.jpg_sgbskb.jpg" class="w-full h-auto object-cover transform hover:scale-105 transition duration-700" alt="About Our School">
+        </div>
+        <div class="absolute -bottom-6 -left-6 gold-bg text-navy rounded-2xl px-6 py-4 shadow-2xl z-20" style="color:#06153A">
+          <div class="text-3xl font-bold">33+</div>
+          <div class="text-sm">Years of Trust</div>
+        </div>
+      </div>
+    </div>
+    
+    <div data-aos="fade-up" class="grid md:grid-cols-2 gap-12 bg-white/5 p-8 rounded-3xl border border-yellow-500/20 glass">
+      <div>
+        <h3 class="gold-text serif text-2xl mb-6">Our Features</h3>
+        <div class="grid grid-cols-1 gap-4">
+          <div class="flex items-center gap-3"><i class="fa-solid fa-check-circle gold-text text-xl"></i> <span class="text-white/90">IIT Foundation</span></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-check-circle gold-text text-xl"></i> <span class="text-white/90">NEET Foundation</span></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-check-circle gold-text text-xl"></i> <span class="text-white/90">IAS Foundation</span></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-check-circle gold-text text-xl"></i> <span class="text-white/90">Smart Digital Learning</span></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-check-circle gold-text text-xl"></i> <span class="text-white/90">Coding & AI Programs</span></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-check-circle gold-text text-xl"></i> <span class="text-white/90">Career-Oriented Education</span></div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="gold-text serif text-2xl mb-6">Our Journey</h3>
+        <div class="space-y-6 border-l-2 border-yellow-500/40 pl-6">
+          <div class="relative"><div class="timeline-dot absolute -left-[35px] top-1"></div><div class="gold-text font-bold text-lg">1993</div><div class="text-sm text-white/70">Started as "Little Angels" with 28 kindergarten students by Mr. R.J. Vijaya Kumar and Mrs. Elizabeth Vijaya Kumar.</div></div>
+          <div class="relative"><div class="timeline-dot absolute -left-[35px] top-1"></div><div class="gold-text font-bold text-lg">1998</div><div class="text-sm text-white/70">Renamed to BELL AND BENNETT SCHOOL after US missionaries Bro. Russel G Bell and Bro. Gary L Bennett.</div></div>
+          <div class="relative"><div class="timeline-dot absolute -left-[35px] top-1"></div><div class="gold-text font-bold text-lg">2003-04</div><div class="text-sm text-white/70">Earned recognition for classes I to VII from the government of Andhra Pradesh.</div></div>
+          <div class="relative"><div class="timeline-dot absolute -left-[35px] top-1"></div><div class="gold-text font-bold text-lg">2010-11</div><div class="text-sm text-white/70">Achieved recognition up to X class, completing our secondary school milestone.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="py-24 relative overflow-hidden" style="background:#06153A">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div data-aos="fade-right" class="glass rounded-3xl p-8 md:p-12 gold-border glow">
+        <h3 class="serif text-3xl gold-text mb-4">Our Vision</h3>
+        <p class="text-white/80 leading-relaxed text-base md:text-lg">BELL AND BENNETT HIGH SCHOOL, aims to build a strong foundation by inculcating deep rooted cultural and social values among its students. The school trains them to be god fearing individuals with versatile personalities who will one day serve the nation with their unique skills, passionate ideas and humble nature.</p>
+        <h3 class="serif text-3xl gold-text mt-10 mb-4">Our Mission</h3>
+        <p class="text-white/80 leading-relaxed text-base md:text-lg">BELL AND BENNETT School is committed to impart education having global standards with innovative practices. We aim to provide quality education through discipline and academic brilliance, enabling the students to achieve success in life with human excellence and human values.</p>
+      </div>
+      <div data-aos="fade-left" class="glass rounded-3xl p-8 md:p-12 gold-border glow">
+        <h3 class="serif text-3xl gold-text mb-8">Core Values</h3>
+        <div class="space-y-6">
+          <div><h4 class="font-bold text-xl text-gold-light">Integrity</h4><p class="text-white/70 mt-2">We believe in creating a culture of integrity, where we build strong characters and to help them act ethically and consistently.</p></div>
+          <div><h4 class="font-bold text-xl text-gold-light">Acceptance</h4><p class="text-white/70 mt-2">Our mission is to confront ignorance with knowledge, prejudice with informed approval and resentment with empathy.</p></div>
+          <div><h4 class="font-bold text-xl text-gold-light">Global consciousness</h4><p class="text-white/70 mt-2">We cultivate universal awareness among our students to have a greater understanding and appreciation of other languages, cultures, history, customs, and religions.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="py-24 royal-bg">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-up">Why <span class="gold-text">Choose Us</span></h2>
+    <div class="gold-divider"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- features generated -->
+    </div>
+  </div>
+</section>
+<script>
+  const features=[
+    ['fa-trophy','Academic Excellence','Consistent top ranks across district and state.'],
+    ['fa-atom','IIT & NEET Foundation','Early prep with expert mentors.'],
+    ['fa-display','Smart Classrooms','Interactive digital boards in every room.'],
+    ['fa-laptop-code','Digital Learning','Modern e-learning platforms.'],
+    ['fa-robot','AI & Coding','Future-ready tech curriculum.'],
+    ['fa-chalkboard-user','Experienced Faculty','Mentors who care and inspire.'],
+    ['fa-bed','Hostel Facilities','Safe AC hostels for boys & girls.'],
+    ['fa-bus','Transportation','Reliable transport across the region.'],
+    ['fa-user-tie','Personality Development','Building confident leaders.'],
+    ['fa-compass','Career Guidance','Personalized counselling and planning.'],
+    ['fa-book-open-reader','Library & Labs','Rich resources for every learner.'],
+    ['fa-hands-praying','Value-Based Education','Knowledge, peace & service.']
+  ];
+  document.addEventListener('DOMContentLoaded',()=>{
+    const grid=document.querySelector('section .grid.sm\\:grid-cols-2.lg\\:grid-cols-4');
+    if(grid){grid.innerHTML=features.map((f,i)=>`
+      <div data-aos="fade-up" data-aos-delay="${(i%4)*100}" class="glass rounded-2xl p-6 text-center card-hover glow-hover">
+        <div class="w-16 h-16 mx-auto gold-bg rounded-2xl flex items-center justify-center text-2xl mb-4" style="color:#06153A"><i class="fa-solid ${f[0]}"></i></div>
+        <h3 class="font-bold text-lg mb-2">${f[1]}</h3>
+        <p class="text-sm text-white/70">${f[2]}</p>
+      </div>`).join('')}
+  });
+</script>
+
+<!-- PROGRAMS -->
+<section id="programs" class="py-24 royal-bg">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-up">Academic <span class="gold-text">Programs</span></h2>
+    <div class="gold-divider"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="programsGrid"></div>
+  </div>
+</section>
+<script>
+const programs=[
+  ['fa-child-reaching','Pre-Primary Section','Smart Kindergarten for LKG & UKG with a comprehensive schedule.'],
+  ['fa-pencil','Primary Section','Strong foundations in literacy and numeracy from classes I onwards.'],
+  ['fa-book','Secondary Section','Holistic academic growth up to class X with innovative methodologies.'],
+  ['fa-atom','IIT & NEET Coaching','Early engineering and medical preparation track starting from Class III.'],
+  ['fa-landmark','Civil Foundation','Groundwork for civil services from an early stage.'],
+  ['fa-robot','Skill Development','Coding, Data Science, AI and ATL LAB innovative Programmes.'],
+  ['fa-language','English Orientation','Basic SAT, MCAT, LSAT, GMAT, GRE, IELTS and the TOEFL Coaching.'],
+  ['fa-brain','Reasoning & Skills','Reasoning Skill Development Coaching & Calligraphy Training.'],
+  ['fa-compass','Career Orientation','Career Orientation & Motivational Programmes by famous speakers.'],
+  ['fa-hands-holding-child','Charity Activities','Charity Oriented activities fostering empathy and service.']
+];
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('programsGrid').innerHTML=programs.map((p,i)=>`
+    <div data-aos="fade-up" data-aos-delay="${(i%3)*100}" class="relative glass rounded-2xl p-8 card-hover gold-border glow-hover">
+      <div class="w-14 h-14 gold-bg rounded-xl flex items-center justify-center text-xl mb-4" style="color:#06153A"><i class="fa-solid ${p[0]}"></i></div>
+      <h3 class="serif text-xl mb-2 gold-text">${p[1]}</h3>
+      <p class="text-white/70 text-sm mb-4">${p[2]}</p>
+      <a href="#contact" class="text-sm gold-text font-semibold inline-flex items-center gap-2">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+    </div>`).join('');
+});
+</script>
+
+<!-- FACILITIES -->
+<section id="facilities" class="py-24" style="background:#06153A">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-up">World-Class <span class="gold-text">Facilities</span></h2>
+    <div class="gold-divider"></div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5" id="facGrid"></div>
+    
+    <!-- FACILITIES DETAILS -->
+    <div class="grid lg:grid-cols-3 gap-8 mt-16 text-left">
+      <div data-aos="fade-up" class="glass rounded-3xl p-8 border border-yellow-500/20 glow-hover">
+        <div class="text-3xl gold-text mb-4"><i class="fa-solid fa-house-chimney"></i></div>
+        <h3 class="serif text-2xl gold-text mb-4">Hostel Life</h3>
+        <ul class="text-white/80 space-y-3 text-sm list-disc pl-4">
+          <li>Separate dormitories for junior and senior boys and girls.</li>
+          <li>AC and water heating system available.</li>
+          <li>Special tutors to take care of academic progress.</li>
+          <li>Wardens in-charge ensuring clean, pleasant, and friendly environment.</li>
+          <li>Nutritious South Indian cuisine (Veg & Non-Veg) changing with seasons.</li>
+          <li>Medical attention cared by wardens with parental consultation.</li>
+        </ul>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="150" class="glass rounded-3xl p-8 border border-yellow-500/20 glow-hover">
+        <div class="text-3xl gold-text mb-4"><i class="fa-solid fa-bus"></i></div>
+        <h3 class="serif text-2xl gold-text mb-4">Transportation</h3>
+        <p class="text-white/80 text-sm leading-relaxed">The school operates a fleet of 3 buses in a radius of 20 kms. The students are to commute only by the authorized school vehicles so as to ensure safety and security of our children. Private conveyance is allowed only with prior permission of school administration.</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300" class="glass rounded-3xl p-8 border border-yellow-500/20 glow-hover">
+        <div class="text-3xl gold-text mb-4"><i class="fa-solid fa-puzzle-piece"></i></div>
+        <h3 class="serif text-2xl gold-text mb-4">Toy Room</h3>
+        <p class="text-white/80 text-sm leading-relaxed">The activity centre for the tiny tots is lovingly addressed as the ‘Toy Room’. It is a well-decorated, vibrant and colourful place giving endless opportunities to students to explore, create, design and discover the fantastic world outside within its secure and affectionate walls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+const facs=[
+  ['fa-house-chimney','Boys & Girls Hostel'],['fa-display','Smart Classrooms'],['fa-flask','Digital Labs'],
+  ['fa-book-bookmark','Library'],['fa-bus','Transportation'],['fa-futbol','Sports Activities'],
+  ['fa-puzzle-piece','Toy Room'],['fa-snowflake','AC Hostels'],['fa-shield-halved','Safety & Security'],['fa-briefcase-medical','Medical Care']
+];
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('facGrid').innerHTML=facs.map((f,i)=>`
+    <div data-aos="zoom-in" data-aos-delay="${(i%5)*80}" class="rounded-2xl p-6 text-center card-hover" style="background:linear-gradient(160deg,#0A1F5C,#06153A);border:1px solid rgba(244,180,0,.2)">
+      <div class="text-3xl gold-text mb-3"><i class="fa-solid ${f[0]}"></i></div>
+      <div class="text-sm font-semibold">${f[1]}</div>
+    </div>`).join('');
+});
+</script>
+
+<!-- DIRECTOR MESSAGE -->
+<section class="py-24 royal-bg relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10"><div class="particle" style="top:30%;left:20%"></div><div class="particle" style="top:60%;left:70%;animation-delay:2s"></div></div>
+  <div class="max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
+    <i class="fa-solid fa-quote-left text-6xl gold-text mb-6"></i>
+    <h2 class="serif text-4xl md:text-5xl mb-8 leading-snug">"Knowledge, <span class="gold-text">Peace</span> & Service."</h2>
+    <div class="text-white/80 text-sm md:text-base mb-10 leading-relaxed text-justify space-y-4 max-w-4xl mx-auto">
+      <p>Dear well wisher, Today, in a world where society is increasingly fragmented and polarized, our school remains a community where honesty and integrity matter. We are a school community of high expectations, academic and otherwise. At the same time, we are devoted to helping students develop intellectual, artistic and personal interests contributing to holistic growth of each individual. Our motto “KNOWLEDGE, PEACE and SERVICE” speaks volumes about the spirit of the school and inspires the budding students.</p>
+      <p>This educational institution, which is 33 years old today, as in the case of every other institution, had a small and humble beginning. It had its ups and downs during its three decades of existence. In spite of its glorious feat as one of the best educational institutions in A.P., it never commercializes education but continues to remain an institution of service, catering to the educational needs of children. BELL AND BENNETT has tried its best to excel in all departments of its students’ growth. The specialty of this institute is that it has made quality education accessible to all, high and low, rich and poor, thanks to the highly motivated staff and the availability of quality infrastructure.</p>
+      <p>During these past 32 years, the institution has created an environment and ambience that fosters learning, as it provides the students with opportunities to explore and grow, through situations that challenge them to identify their strengths and reinforce them. In this regard, the words of the great scientist Albert Einstein are memorable when he said, “I don’t teach my children. I create conditions for them to learn.”</p>
+      <p>Central to our efforts to build an intellectual community is our faculty. Intensely devoted to the success of their students, the faculty serves as teachers, coaches, advisors, mentors and friends. In every area of school life, the faculty seeks to challenge and inspire students to reach new levels of enquiry and understanding. While we establish the foundation of your child’s learning and ascertain his/her thorough development to enhance his/her present, we also undertake to prepare him/her for the highly competitive arena of further studies for his/her bright future.</p>
+      <p>I welcome parents and students to be a part of the BELL AND BENNETT family to share common ideals and aspirations as we build a challenging and enriching educational experience for our students. It may be stated here that B & B has been rated as one of the most looked-up-to-institutions and is going through an unprecedented era of development with your sincere and devoted support and blessings. I would like to thank every one of you for your priceless contribution. Joint efforts of the management, faculty and parents in this noble task are always recognised and appreciated. Together we can transform the learners, giving them the wings of knowledge, responsible usage of technology along with the strength of wisdom to make the world a better place.</p>
+      <p class="text-right font-bold text-gold-light italic pt-4">With lots of respect and love,<br>R.J. Vijaya Kumar<br>The Director & Correspondent</p>
+    </div>
+    <div class="inline-flex items-center gap-4 glass px-6 py-4 rounded-2xl">
+      <div class="w-14 h-14 rounded-full gold-bg flex items-center justify-center" style="color:#06153A"><i class="fa-solid fa-user-tie text-2xl"></i></div>
+      <div class="text-left"><div class="gold-text serif">Director's Message</div><div class="text-sm text-white/70">Bell & Bennett High School</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS CTA -->
+<section id="admissions" class="py-24" style="background:linear-gradient(135deg,#06153A,#0A1F5C)">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="relative rounded-3xl p-10 md:p-16 text-center glow gold-border overflow-hidden" data-aos="zoom-in" style="background:linear-gradient(135deg,rgba(10,31,92,.95),rgba(6,21,58,.95))">
+      <div class="absolute top-6 right-6 text-5xl gold-text opacity-40"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="inline-block gold-bg px-4 py-2 rounded-full text-sm font-bold mb-6" style="color:#06153A">LIMITED SEATS</div>
+      <h2 class="text-4xl md:text-6xl serif font-bold mb-4">Admissions Open for <span class="gold-text">2026–27</span></h2>
+      <p class="text-white/80 max-w-4xl mx-auto mb-8 text-sm md:text-base leading-relaxed">Parents seeking admissions for LKG, the age should be 3 years and 6 months plus during the year of joining. Online Registration for the admission can be done or else can contact the school office. Mere online registration does not ensure the admission. Admission to the school will be decided after the interaction session. Parents must accompany their ward at the time of interaction session. Students seeking admission other than LKG, UKG and Class I, will have to produce Transfer Certificate, Conduct Certificate and Mark List from the school last attended.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#contact" class="btn-gold pulse-gold">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="btn-outline-gold">Schedule a Visit</a>
+        <a href="tel:9704715510" class="btn-outline-gold"><i class="fa-solid fa-phone"></i> Contact School</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-24" style="background:#06153A">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-up">Photo <span class="gold-text">Gallery</span></h2>
+    <div class="gold-divider"></div>
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up">
+        <img src="assets/10th_Class.jpeg" class="w-full h-full object-cover object-top" alt="10th Class Batch 2025-26">
+        <div class="label"><div class="gold-text serif text-xl font-bold">10th Class Batch</div><div class="text-sm text-white/80">2025-26</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="100">
+        <img src="assets/UKG.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teachers with U.K.G Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">U.K.G Class</div><div class="text-sm text-white/80">Director and Class Teachers with Students</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="200">
+        <img src="assets/Secondary_Staff.jpg" class="w-full h-full object-cover object-center" alt="Director and Secondary Staff">
+        <div class="label"><div class="gold-text serif text-xl font-bold">Secondary Staff</div><div class="text-sm text-white/80">Director and Secondary Staff</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="300">
+        <img src="assets/Office_Staff.jpg" class="w-full h-full object-cover object-center" alt="Director and Office Staff">
+        <div class="label"><div class="gold-text serif text-xl font-bold">Office Staff</div><div class="text-sm text-white/80">Director and Office Staff</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24" style="background:#06153A">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-title" data-aos="fade-up">Get In <span class="gold-text">Touch</span></h2>
+    <div class="gold-divider"></div>
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div data-aos="fade-right" class="space-y-6">
+        <div class="glass rounded-2xl p-6 flex gap-4 items-start">
+          <div class="w-12 h-12 gold-bg rounded-xl flex items-center justify-center flex-shrink-0" style="color:#06153A"><i class="fa-solid fa-location-dot"></i></div>
+          <div><div class="font-bold gold-text">Address</div><div class="text-white/80 text-sm mt-1">Bell & Bennett High School<br>Ramnagar, Addanki Mandal,<br>Prakasam District – 523201, AP</div></div>
+        </div>
+        <div class="glass rounded-2xl p-6 flex gap-4 items-start">
+          <div class="w-12 h-12 gold-bg rounded-xl flex items-center justify-center flex-shrink-0" style="color:#06153A"><i class="fa-solid fa-phone"></i></div>
+          <div><div class="font-bold gold-text">Phone</div><a href="tel:9704715510" class="text-white/80 text-sm mt-1 block">9704715510</a></div>
+        </div>
+        <div class="glass rounded-2xl p-6 flex gap-4 items-start">
+          <div class="w-12 h-12 gold-bg rounded-xl flex items-center justify-center flex-shrink-0" style="color:#06153A"><i class="fa-brands fa-whatsapp"></i></div>
+          <div><div class="font-bold gold-text">WhatsApp</div><a href="https://wa.me/919704715510" class="text-white/80 text-sm mt-1 block">Chat with us instantly</a></div>
+        </div>
+        <div class="rounded-2xl overflow-hidden gold-border h-64">
+          <iframe src="https://www.google.com/maps?q=Addanki,Prakasam,Andhra+Pradesh&output=embed" class="w-full h-full" loading="lazy"></iframe>
+        </div>
+      </div>
+      <form data-aos="fade-left" class="glass rounded-3xl p-8 space-y-5" onsubmit="event.preventDefault();alert('Thank you! We will get in touch with you soon.');this.reset()">
+        <h3 class="serif text-2xl gold-text">Quick Enquiry</h3>
+        <input required placeholder="Parent / Student Name" class="w-full bg-white/5 border border-yellow-500/20 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-500">
+        <input required type="tel" placeholder="Phone Number" class="w-full bg-white/5 border border-yellow-500/20 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-500">
+        <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-yellow-500/20 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-500">
+        <select class="w-full bg-white/5 border border-yellow-500/20 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-500" style="color:#fff">
+          <option style="color:#000">Class of Interest</option>
+          <option style="color:#000">Pre-Primary</option><option style="color:#000">Primary</option>
+          <option style="color:#000">Secondary</option><option style="color:#000">IIT Foundation</option>
+          <option style="color:#000">NEET Foundation</option><option style="color:#000">IAS Foundation</option>
+        </select>
+        <textarea rows="4" placeholder="Your Message" class="w-full bg-white/5 border border-yellow-500/20 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-500"></textarea>
+        <button class="btn-gold w-full justify-center">Send Enquiry <i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pt-20 pb-8 royal-bg border-t border-yellow-500/20">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <div class="flex items-center gap-4 mb-5">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-yellow-500/30 shadow-lg bg-white flex items-center justify-center">
+          <img src="https://res.cloudinary.com/dg5ct7fys/image/upload/v1779531044/logo_bbihzx.jpg" class="w-full h-full object-cover scale-[1.15]" alt="Bell & Bennett">
+        </div>
+        <div>
+          <div class="serif gold-text text-2xl font-bold">Bell & Bennett</div>
+          <div class="text-sm text-white/60 mt-1">High School • Est. 1993</div>
+        </div>
+      </div>
+      <p class="text-white/70 text-sm mb-4">School of IIT, NEET & IAS Foundation. Building excellence since 1993 with a commitment to knowledge, peace and service.</p>
+      <div class="flex gap-3">
+        <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:gold-bg transition" style="color:#FFD54F"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center" style="color:#FFD54F"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center" style="color:#FFD54F"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="w-10 h-10 glass rounded-full flex items-center justify-center" style="color:#FFD54F"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div><h4 class="gold-text font-bold mb-4 serif">Quick Links</h4><ul class="space-y-2 text-sm text-white/70">
+      <li><a href="#home" class="hover:text-yellow-400">Home</a></li><li><a href="#about" class="hover:text-yellow-400">About</a></li>
+    </ul></div>
+    <div><h4 class="gold-text font-bold mb-4 serif">Programs</h4><ul class="space-y-2 text-sm text-white/70">
+      <li>IIT Foundation</li><li>NEET Foundation</li><li>IAS Foundation</li><li>Coding & AI</li>
+    </ul></div>
+    <div><h4 class="gold-text font-bold mb-4 serif">Contact</h4><ul class="space-y-2 text-sm text-white/70">
+      <li><i class="fa-solid fa-location-dot gold-text"></i> Addanki, Prakasam Dist.</li>
+      <li><i class="fa-solid fa-phone gold-text"></i> 9704715510</li>
+      <li><i class="fa-solid fa-envelope gold-text"></i> info@bellbennett.edu</li>
+    </ul></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-yellow-500/20 flex flex-col md:flex-row justify-between gap-3 text-sm text-white/60">
+    <div>© 2026 Bell & Bennett High School. All rights reserved.</div>
+    <div class="gold-text serif italic">"Excellence Beyond Expectations"</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919704715510" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({duration:900,once:true,offset:80});
+  window.addEventListener('load',()=>{setTimeout(()=>{const l=document.getElementById('loader');l.style.opacity=0;setTimeout(()=>l.style.display='none',600)},400)});
+  const nav=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>{
+    if(scrollY>50){nav.classList.add('glass-dark','py-3','shadow-2xl');nav.classList.remove('py-4')}
+    else{nav.classList.remove('glass-dark','py-3','shadow-2xl');nav.classList.add('py-4')}
+  });
+  document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('hidden'));
+  // counters
+  const animateCounter=(el)=>{const t=+el.dataset.target;let c=0;const step=Math.max(1,Math.ceil(t/60));const id=setInterval(()=>{c+=step;if(c>=t){el.textContent=t+(t>=1000?'+':'');clearInterval(id)}else el.textContent=c},25)};
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);io.unobserve(e.target)}}),{threshold:.4});
+  document.querySelectorAll('.counter').forEach(c=>io.observe(c));
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.add('hidden')}}));
+</script>
+</body>
+</html>
