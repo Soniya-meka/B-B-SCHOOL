@@ -14,9 +14,10 @@
   :root{
     --royal:#0A1F5C; --navy:#06153A; --gold:#F4B400; --gold-light:#FFD54F;
   }
-  *{font-family:'Poppins',sans-serif}
+  *{font-family:'Poppins',sans-serif;box-sizing:border-box}
   h1,h2,h3,.serif{font-family:'Cinzel',serif;letter-spacing:.5px}
-  body{background:#06153A;color:#fff;overflow-x:hidden}
+  html{overflow-x:hidden}
+  body{background:#06153A;color:#fff;overflow-x:hidden;width:100%;max-width:100vw}
   .gold-text{background:linear-gradient(135deg,#F4B400,#FFD54F,#F4B400);-webkit-background-clip:text;background-clip:text;color:transparent}
   .gold-bg{background:linear-gradient(135deg,#F4B400 0%,#FFD54F 50%,#F4B400 100%)}
   .royal-bg{background:linear-gradient(135deg,#06153A 0%,#0A1F5C 50%,#06153A 100%)}
@@ -29,7 +30,7 @@
   .glow-hover:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(244,180,0,.4),0 0 80px rgba(244,180,0,.2)}
   .hero-bg{background:linear-gradient(135deg,rgba(6,21,58,.7),rgba(10,31,92,.55)),url('assets/hero.jpg') center/cover;background-size:cover;background-position:center}
   .light-streak{position:absolute;background:linear-gradient(90deg,transparent,rgba(244,180,0,.4),transparent);height:2px;width:300px;animation:streak 8s linear infinite}
-  @keyframes streak{0%{transform:translateX(-300px) rotate(-30deg);opacity:0}50%{opacity:1}100%{transform:translateX(110vw) rotate(-30deg);opacity:0}}
+  @keyframes streak{0%{transform:translateX(-300px) rotate(-30deg);opacity:0}50%{opacity:1}100%{transform:translateX(100%) rotate(-30deg);opacity:0}}
   .particle{position:absolute;width:6px;height:6px;background:#F4B400;border-radius:50%;box-shadow:0 0 12px #F4B400;animation:float 6s ease-in-out infinite}
   @keyframes float{0%,100%{transform:translateY(0) translateX(0);opacity:.3}50%{transform:translateY(-40px) translateX(20px);opacity:1}}
   @keyframes pulse-gold{0%,100%{box-shadow:0 0 20px rgba(244,180,0,.4)}50%{box-shadow:0 0 40px rgba(244,180,0,.8),0 0 80px rgba(244,180,0,.3)}}
@@ -65,6 +66,226 @@
   .social-float .youtube{background:#FF0000;box-shadow:0 6px 20px rgba(255,0,0,.35)}
   .social-float .instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);box-shadow:0 6px 20px rgba(225,48,108,.4)}
   .social-float .facebook{background:#1877F2;box-shadow:0 6px 20px rgba(24,119,242,.4)}
+
+  /* ===================================================================
+     MOBILE RESPONSIVE — all selectors use explicit IDs (no Tailwind escaping)
+     =================================================================== */
+
+  /* Prevent ANY element from causing horizontal overflow */
+  section, nav, footer, header, main, div{
+    max-width:100%;
+  }
+
+  /* ── Tablet navbar padding ── */
+  @media(max-width:1024px){
+    #navbar .max-w-7xl{padding-left:16px;padding-right:16px}
+  }
+
+  @media(max-width:768px){
+
+    /* ── Navbar ── */
+    #navbar .max-w-7xl{padding-left:14px;padding-right:14px}
+    #navbar .w-16{width:38px!important;height:38px!important}
+    #navbar .serif{font-size:.82rem}
+    #navbar .text-xs{font-size:.58rem}
+
+    /* ── Hero section ── */
+    #home{
+      min-height:100svh;
+      padding-top:80px;
+      padding-bottom:36px;
+    }
+    /* Single-column layout: text on top, stats below */
+    #home > div > div.max-w-7xl,
+    #home .max-w-7xl{
+      padding-left:16px!important;
+      padding-right:16px!important;
+    }
+    #home .max-w-7xl > .grid,
+    #home .max-w-7xl > div[class*="grid"]{
+      grid-template-columns:1fr!important;
+      gap:24px!important;
+    }
+    /* Centre the text block */
+    #home [data-aos="fade-right"]{
+      text-align:center;
+    }
+    #home [data-aos="fade-right"] > .inline-flex{
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom:14px;
+    }
+    #home [data-aos="fade-right"] .flex.flex-wrap{
+      justify-content:center;
+    }
+    #home h1{
+      font-size:clamp(1.75rem,7vw,2.4rem)!important;
+      line-height:1.2;
+    }
+    #home p.text-xl{font-size:.9rem}
+    #home p.text-lg{font-size:.82rem}
+    #home p.italic{font-size:.8rem;margin-bottom:12px}
+
+    /* Stats grid stays 2-col but smaller */
+    #home [data-aos="fade-left"]{
+      width:100%;
+      grid-template-columns:1fr 1fr!important;
+      gap:10px!important;
+    }
+    #home [data-aos="fade-left"] .glass{padding:12px 8px!important;border-radius:14px}
+    #home [data-aos="fade-left"] [class*="text-4xl"]{font-size:1.5rem!important}
+    #home [data-aos="fade-left"] [class*="text-3xl"]{font-size:1.2rem!important}
+    #home [data-aos="fade-left"] [class*="text-sm"]{font-size:.6rem!important}
+    #home [data-aos="fade-left"] .col-span-2 [class*="text-2xl"]{font-size:1rem!important}
+    #home [data-aos="fade-left"] .col-span-2 .flex{gap:10px!important}
+
+    /* Hero buttons */
+    .btn-gold{padding:11px 20px;font-size:.82rem}
+    .btn-outline-gold{padding:10px 18px;font-size:.82rem}
+
+    /* ── Social float ── */
+    .social-float{right:10px;bottom:14px;gap:8px}
+    .social-float a{width:40px;height:40px;font-size:18px}
+
+    /* ── Section-global ── */
+    .section-title{font-size:1.5rem!important}
+    .gold-divider{margin:10px auto 20px}
+
+    /* ── About ── */
+    #about{padding:44px 0}
+    #about-grid{
+      grid-template-columns:1fr!important;
+      gap:28px!important;
+    }
+    #about h2{font-size:1.6rem!important}
+    /* Float badge: keep it inside the image box */
+    #about-grid [data-aos="fade-left"]{
+      padding-bottom:20px;
+    }
+    #about-features-grid{
+      grid-template-columns:1fr!important;
+      gap:20px!important;
+      padding:20px!important;
+    }
+
+    /* ── Vision & Mission ── */
+    #vision-grid{
+      grid-template-columns:1fr!important;
+      gap:14px!important;
+    }
+    #vision-grid .glass{padding:20px!important}
+    #vision-grid .serif{font-size:1.2rem!important}
+
+    /* ── Why Choose Us ── */
+    #why-choose-grid{
+      grid-template-columns:1fr 1fr!important;
+      gap:10px!important;
+    }
+    #why-choose-grid .glass{padding:14px 10px!important}
+    #why-choose-grid .w-16{width:44px!important;height:44px!important;font-size:1.1rem!important;margin-bottom:8px!important}
+    #why-choose-grid h3{font-size:.82rem!important;margin-bottom:4px}
+    #why-choose-grid p{font-size:.7rem!important}
+
+    /* ── Programs ── */
+    #programs{padding:44px 0}
+    #programsGrid{
+      grid-template-columns:1fr!important;
+      gap:12px!important;
+    }
+
+    /* ── Facilities ── */
+    #facilities{padding:44px 0}
+    #facGrid{
+      grid-template-columns:1fr 1fr!important;
+      gap:10px!important;
+    }
+    #facilities-detail-grid{
+      grid-template-columns:1fr!important;
+      gap:14px!important;
+      margin-top:28px!important;
+    }
+    #facilities-detail-grid .glass{padding:18px!important}
+    #facilities-detail-grid h3{font-size:1.1rem!important}
+
+    /* ── Director message ── */
+    .fa-quote-left{font-size:2rem!important}
+    #director-section h2,
+    section .max-w-5xl h2{font-size:1.4rem!important;margin-bottom:14px!important}
+    section .max-w-5xl > div > p{font-size:.8rem}
+
+    /* ── Admissions CTA ── */
+    #admissions{padding:44px 0}
+    #admissions .relative{padding:22px 16px!important}
+    #admissions h2{font-size:1.35rem!important;line-height:1.25}
+    #admissions p{font-size:.78rem}
+    #admissions .flex.flex-wrap{
+      flex-direction:column!important;
+      align-items:stretch!important;
+      gap:10px!important;
+    }
+    #admissions .flex.flex-wrap a{
+      justify-content:center!important;
+      text-align:center;
+    }
+
+    /* ── Gallery ── */
+    #gallery{padding:44px 0}
+    #gallery-grid{
+      grid-template-columns:1fr!important;
+      gap:14px!important;
+      margin-top:18px!important;
+    }
+    .gallery-item{height:210px!important}
+    .gallery-item .label{bottom:0!important}
+
+    /* ── Contact ── */
+    #contact{padding:44px 0}
+    #contact-grid{
+      grid-template-columns:1fr!important;
+      gap:18px!important;
+    }
+    #contact .rounded-2xl.overflow-hidden{height:200px!important}
+    #contact form button.btn-gold{width:100%;justify-content:center}
+
+    /* ── Footer ── */
+    footer{padding-top:36px;padding-bottom:14px}
+    #footer-grid{
+      grid-template-columns:1fr 1fr!important;
+      gap:20px!important;
+      padding-left:16px!important;
+      padding-right:16px!important;
+    }
+    #footer-grid > div:first-child{
+      grid-column:1 / -1;
+    }
+    #footer-grid .w-20{width:46px!important;height:46px!important}
+    #footer-grid .serif{font-size:1.05rem}
+  }
+
+  /* ── Very small phones (<480px) ── */
+  @media(max-width:480px){
+    #home{padding-top:70px}
+    #home h1{font-size:clamp(1.5rem,8.5vw,1.85rem)!important}
+    #home p.text-xl{font-size:.78rem}
+    #home p.text-lg{font-size:.72rem}
+    .btn-gold{padding:10px 14px;font-size:.74rem;gap:6px}
+    .btn-outline-gold{padding:9px 12px;font-size:.74rem}
+
+    #home [data-aos="fade-left"] [class*="text-4xl"]{font-size:1.3rem!important}
+    #home [data-aos="fade-left"] [class*="text-3xl"]{font-size:1.05rem!important}
+    #home [data-aos="fade-left"] .col-span-2 .flex{flex-wrap:wrap;justify-content:center;gap:8px!important}
+
+    .social-float{right:8px;bottom:10px;gap:6px}
+    .social-float a{width:36px;height:36px;font-size:16px}
+
+    .section-title{font-size:1.25rem!important}
+    .gallery-item{height:185px!important}
+    #admissions h2{font-size:1.1rem!important}
+    #why-choose-grid{grid-template-columns:1fr 1fr!important}
+
+    #footer-grid{grid-template-columns:1fr!important}
+    #footer-grid > div:first-child{grid-column:auto}
+  }
 </style>
 </head>
 <body>
@@ -100,12 +321,16 @@
     <a href="#admissions" class="btn-gold !py-2 !px-5 !text-sm hidden md:inline-flex">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
     <button class="lg:hidden text-2xl text-gold-light" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
   </div>
-  <div id="mobileMenu" class="lg:hidden hidden glass-dark mt-2 mx-4 rounded-2xl p-6 space-y-3">
-    <a href="#home" class="block">Home</a><a href="#about" class="block">About</a>
-    <a href="#programs" class="block">Programs</a>
-    <a href="#facilities" class="block">Facilities</a>
-    <a href="#gallery" class="block">Images</a>
-    <a href="#contact" class="block">Contact</a>
+  <div id="mobileMenu" class="lg:hidden hidden glass-dark mt-2 mx-4 rounded-2xl p-5 space-y-1">
+    <a href="#home" class="flex items-center gap-3 py-3 px-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-home gold-text text-sm w-5"></i> Home</a>
+    <a href="#about" class="flex items-center gap-3 py-3 px-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-school gold-text text-sm w-5"></i> About</a>
+    <a href="#programs" class="flex items-center gap-3 py-3 px-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-book gold-text text-sm w-5"></i> Programs</a>
+    <a href="#facilities" class="flex items-center gap-3 py-3 px-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-building gold-text text-sm w-5"></i> Facilities</a>
+    <a href="#gallery" class="flex items-center gap-3 py-3 px-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-images gold-text text-sm w-5"></i> Images</a>
+    <a href="#contact" class="flex items-center gap-3 py-3 px-3 rounded-xl hover:bg-white/5 transition"><i class="fa-solid fa-envelope gold-text text-sm w-5"></i> Contact</a>
+    <div class="pt-2 border-t border-yellow-500/20">
+      <a href="#admissions" class="btn-gold w-full justify-center !py-3 !text-sm mt-2">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
   </div>
 </nav>
 
@@ -120,7 +345,7 @@
     <div class="light-streak" style="top:25%"></div>
     <div class="light-streak" style="top:65%;animation-delay:4s"></div>
   </div>
-  <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
     <div data-aos="fade-right">
       <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6">
         <span class="w-2 h-2 bg-gold-light rounded-full" style="background:#F4B400"></span>
@@ -137,7 +362,7 @@
         <a href="#contact" class="btn-outline-gold">Contact Us</a>
       </div>
     </div>
-    <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
+    <div data-aos="fade-left" class="grid grid-cols-2 gap-4 w-full">
       <div class="glass rounded-2xl p-6 text-center glow-hover">
         <div class="text-4xl font-bold gold-text counter" data-target="33">0</div>
         <div class="text-sm text-white/80 mt-2">Years of Excellence</div>
@@ -173,7 +398,7 @@
 <!-- ABOUT -->
 <section id="about" class="py-24 relative" style="background:linear-gradient(180deg,#06153A,#0A1F5C)">
   <div class="max-w-6xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
+    <div id="about-grid" class="grid lg:grid-cols-2 gap-16 items-center mb-16">
       <div data-aos="fade-right">
         <span class="gold-text serif tracking-widest text-sm">ABOUT OUR SCHOOL</span>
         <h2 class="text-4xl md:text-5xl font-bold my-4">A Legacy of <span class="gold-text">Knowledge & Values</span></h2>
@@ -186,6 +411,24 @@
       </div>
       
       <div data-aos="fade-left" class="relative">
+        <!-- Founders Images -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="gold-border rounded-2xl overflow-hidden shadow-xl relative group bg-white">
+            <img src="assets/founder2.jpg" class="w-full aspect-[4/5] object-cover object-center transform group-hover:scale-105 transition duration-500" alt="Mr. R.J. Vijaya Kumar">
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#06153A] via-[#06153A]/90 to-transparent pt-12 pb-3 text-center">
+              <div class="text-[0.9rem] font-bold gold-text leading-tight">Mr. R.J. Vijaya Kumar</div>
+              <div class="text-xs text-white/90">Director</div>
+            </div>
+          </div>
+          <div class="gold-border rounded-2xl overflow-hidden shadow-xl relative group bg-white">
+            <img src="assets/founder1.jpg" class="w-full aspect-[4/5] object-cover object-center transform group-hover:scale-105 transition duration-500" alt="Mrs. Elizabeth Vijaya Kumar">
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#06153A] via-[#06153A]/90 to-transparent pt-12 pb-3 text-center">
+              <div class="text-[0.9rem] font-bold gold-text leading-tight">Mrs. Elizabeth V.K.</div>
+              <div class="text-xs text-white/90">Foundress</div>
+            </div>
+          </div>
+        </div>
+
         <div class="gold-border rounded-3xl overflow-hidden shadow-2xl relative z-10 glow">
           <img src="https://res.cloudinary.com/dg5ct7fys/image/upload/v1779519692/Day_2.jpg_sgbskb.jpg" class="w-full h-auto object-cover transform hover:scale-105 transition duration-700" alt="About Our School">
         </div>
@@ -196,7 +439,7 @@
       </div>
     </div>
     
-    <div data-aos="fade-up" class="grid md:grid-cols-2 gap-12 bg-white/5 p-8 rounded-3xl border border-yellow-500/20 glass">
+    <div id="about-features-grid" data-aos="fade-up" class="grid md:grid-cols-2 gap-12 bg-white/5 p-8 rounded-3xl border border-yellow-500/20 glass">
       <div>
         <h3 class="gold-text serif text-2xl mb-6">Our Features</h3>
         <div class="grid grid-cols-1 gap-4">
@@ -225,7 +468,7 @@
 <!-- VISION & MISSION -->
 <section class="py-24 relative overflow-hidden" style="background:#06153A">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-10">
+    <div id="vision-grid" class="grid lg:grid-cols-2 gap-10">
       <div data-aos="fade-right" class="glass rounded-3xl p-8 md:p-12 gold-border glow">
         <h3 class="serif text-3xl gold-text mb-4">Our Vision</h3>
         <p class="text-white/80 leading-relaxed text-base md:text-lg">BELL AND BENNETT HIGH SCHOOL, aims to build a strong foundation by inculcating deep rooted cultural and social values among its students. The school trains them to be god fearing individuals with versatile personalities who will one day serve the nation with their unique skills, passionate ideas and humble nature.</p>
@@ -249,7 +492,7 @@
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="section-title" data-aos="fade-up">Why <span class="gold-text">Choose Us</span></h2>
     <div class="gold-divider"></div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div id="why-choose-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- features generated -->
     </div>
   </div>
@@ -270,7 +513,7 @@
     ['fa-hands-praying','Value-Based Education','Knowledge, peace & service.']
   ];
   document.addEventListener('DOMContentLoaded',()=>{
-    const grid=document.querySelector('section .grid.sm\\:grid-cols-2.lg\\:grid-cols-4');
+    const grid=document.getElementById('why-choose-grid');
     if(grid){grid.innerHTML=features.map((f,i)=>`
       <div data-aos="fade-up" data-aos-delay="${(i%4)*100}" class="glass rounded-2xl p-6 text-center card-hover glow-hover">
         <div class="w-16 h-16 mx-auto gold-bg rounded-2xl flex items-center justify-center text-2xl mb-4" style="color:#06153A"><i class="fa-solid ${f[0]}"></i></div>
@@ -320,7 +563,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5" id="facGrid"></div>
     
     <!-- FACILITIES DETAILS -->
-    <div class="grid lg:grid-cols-3 gap-8 mt-16 text-left">
+    <div id="facilities-detail-grid" class="grid lg:grid-cols-3 gap-8 mt-16 text-left">
       <div data-aos="fade-up" class="glass rounded-3xl p-8 border border-yellow-500/20 glow-hover">
         <div class="text-3xl gold-text mb-4"><i class="fa-solid fa-house-chimney"></i></div>
         <h3 class="serif text-2xl gold-text mb-4">Hostel Life</h3>
@@ -348,9 +591,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 </section>
 <script>
 const facs=[
-  ['fa-house-chimney','Boys & Girls Hostel'],['fa-display','Smart Classrooms'],['fa-flask','Digital Labs'],
+  ['fa-house-chimney','Separate hostel for boys and girls.'],['fa-display','Smart Classrooms'],['fa-flask','Digital Labs'],
   ['fa-book-bookmark','Library'],['fa-bus','Transportation'],['fa-futbol','Sports Activities'],
-  ['fa-puzzle-piece','Toy Room'],['fa-snowflake','AC Hostels'],['fa-shield-halved','Safety & Security'],['fa-briefcase-medical','Medical Care']
+  ['fa-puzzle-piece','Toy Room'],['fa-snowflake','AC dormitories'],['fa-shield-halved','Safety & Security'],['fa-briefcase-medical','Medical Care']
 ];
 document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('facGrid').innerHTML=facs.map((f,i)=>`
@@ -382,6 +625,40 @@ document.addEventListener('DOMContentLoaded',()=>{
   </div>
 </section>
 
+<!-- FOUNDRESS MESSAGE -->
+<section class="py-24 relative overflow-hidden" style="background:#06153A">
+  <div class="max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
+    <i class="fa-solid fa-quote-left text-6xl gold-text mb-6"></i>
+    <h2 class="serif text-4xl md:text-5xl mb-8 leading-snug">"Empowering <span class="gold-text">Minds</span> & Hearts."</h2>
+    <div class="text-white/80 text-sm md:text-base mb-10 leading-relaxed text-justify space-y-4 max-w-4xl mx-auto">
+      <p>Education is not just about academic excellence; it is about character building, compassion, and the holistic development of every child. At Bell & Bennett, we strive to create a nurturing environment where students feel safe to explore their talents, embrace new challenges, and grow into responsible global citizens.</p>
+      <p>Our journey began with a simple dream: to provide an inclusive learning space that fosters creativity and critical thinking. Over the past three decades, it has been immensely fulfilling to witness countless students walk through our doors and emerge as confident, capable, and compassionate individuals. Let us continue to work hand-in-hand to illuminate the path of our future leaders.</p>
+      <p class="text-right font-bold text-gold-light italic pt-4">With warm regards,<br>Mrs. Elizabeth Vijaya Kumar<br>The Foundress</p>
+    </div>
+    <div class="inline-flex items-center gap-4 glass px-6 py-4 rounded-2xl">
+      <div class="w-14 h-14 rounded-full gold-bg flex items-center justify-center" style="color:#06153A"><i class="fa-solid fa-user-tie text-2xl"></i></div>
+      <div class="text-left"><div class="gold-text serif">Foundress's Message</div><div class="text-sm text-white/70">Bell & Bennett High School</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPAL MESSAGE -->
+<section class="py-24 royal-bg relative overflow-hidden">
+  <div class="max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
+    <i class="fa-solid fa-quote-left text-6xl gold-text mb-6"></i>
+    <h2 class="serif text-4xl md:text-5xl mb-8 leading-snug">"Inspiring <span class="gold-text">Excellence</span> Every Day."</h2>
+    <div class="text-white/80 text-sm md:text-base mb-10 leading-relaxed text-justify space-y-4 max-w-4xl mx-auto">
+      <p>Welcome to Bell & Bennett High School! As the Principal, it is my privilege to lead a community of dedicated educators and enthusiastic learners. Our focus is on providing a balanced educational experience that challenges students academically while supporting their emotional and social well-being.</p>
+      <p>In today's fast-paced and ever-changing world, it is crucial that we equip our students with the skills they need to adapt and succeed. Through our innovative curriculum and comprehensive extracurricular programs, we ensure that every student has the opportunity to discover their unique strengths and passions. We look forward to partnering with you to help your child reach their full potential.</p>
+      <p class="text-right font-bold text-gold-light italic pt-4">Sincerely,<br>The Principal<br>Bell & Bennett High School</p>
+    </div>
+    <div class="inline-flex items-center gap-4 glass px-6 py-4 rounded-2xl">
+      <div class="w-14 h-14 rounded-full gold-bg flex items-center justify-center" style="color:#06153A"><i class="fa-solid fa-user-tie text-2xl"></i></div>
+      <div class="text-left"><div class="gold-text serif">Principal's Message</div><div class="text-sm text-white/70">Bell & Bennett High School</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ADMISSIONS CTA -->
 <section id="admissions" class="py-24" style="background:linear-gradient(135deg,#06153A,#0A1F5C)">
   <div class="max-w-6xl mx-auto px-6">
@@ -404,20 +681,100 @@ document.addEventListener('DOMContentLoaded',()=>{
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="section-title" data-aos="fade-up">Photo <span class="gold-text">Gallery</span></h2>
     <div class="gold-divider"></div>
-    <div class="grid md:grid-cols-2 gap-8 mt-12">
+    <div id="gallery-grid" class="grid md:grid-cols-2 gap-8 mt-12">
       <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up">
-        <img src="assets/10th_Class.jpeg" class="w-full h-full object-cover object-top" alt="10th Class Batch 2025-26">
-        <div class="label"><div class="gold-text serif text-xl font-bold">10th Class Batch</div><div class="text-sm text-white/80">2025-26</div></div>
+        <img src="assets/LKG_Students.png" class="w-full h-full object-cover object-center" alt="Director and Class Teachers with L.K.G Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">L.K.G Students</div><div class="text-sm text-white/80">Director and Class Teachers</div></div>
       </div>
       <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="100">
         <img src="assets/UKG.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teachers with U.K.G Students">
-        <div class="label"><div class="gold-text serif text-xl font-bold">U.K.G Class</div><div class="text-sm text-white/80">Director and Class Teachers with Students</div></div>
+        <div class="label"><div class="gold-text serif text-xl font-bold">U.K.G Students</div><div class="text-sm text-white/80">Director and Class Teachers</div></div>
       </div>
       <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="200">
+        <img src="assets/1st_Star_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 1st Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">1st Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="300">
+        <img src="assets/1st_Smart_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 1st Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">1st Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="400">
+        <img src="assets/2nd_Star_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 2nd Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">2nd Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="500">
+        <img src="assets/2nd_Smart_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 2nd Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">2nd Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="600">
+        <img src="assets/3rd_Star_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 3rd Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">3rd Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="700">
+        <img src="assets/3rd_Smart_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 3rd Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">3rd Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="800">
+        <img src="assets/4th_Star_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 4th Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">4th Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="900">
+        <img src="assets/4th_Smart_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 4th Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">4th Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1000">
+        <img src="assets/5th_Star_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 5th Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">5th Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1100">
+        <img src="assets/5th_Smart_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 5th Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">5th Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1200">
+        <img src="assets/6th_Star_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 6th Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">6th Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1300">
+        <img src="assets/6th_Smart_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 6th Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">6th Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1400">
+        <img src="assets/7th_Star_Students.png" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 7th Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">7th Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1500">
+        <img src="assets/7th_Smart_Students.jpg" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 7th Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">7th Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1600">
+        <img src="assets/8th_Star_Students.png" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 8th Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">8th Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1700">
+        <img src="assets/8th_Smart_Students.png" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 8th Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">8th Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1800">
+        <img src="assets/9th_Star_Students.png" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 9th Star Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">9th Star Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="1900">
+        <img src="assets/9th_Smart_Students.png" class="w-full h-full object-cover object-center" alt="Director and Class Teacher with 9th Smart Students">
+        <div class="label"><div class="gold-text serif text-xl font-bold">9th Smart Students</div><div class="text-sm text-white/80">Director and Class Teacher</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="2000">
+        <img src="assets/10th_Class_Batch.png" class="w-full h-full object-cover object-center" alt="10th Class Batch 2025-26">
+        <div class="label"><div class="gold-text serif text-xl font-bold">10th Class Batch 2025-26</div><div class="text-sm text-white/80">Bell & Bennett High School - Addanki</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="2100">
+        <img src="assets/10th_Class.jpeg" class="w-full h-full object-cover object-top" alt="10th Class Batch 2025-26">
+        <div class="label"><div class="gold-text serif text-xl font-bold">10th Class Batch</div><div class="text-sm text-white/80">2025-26</div></div>
+      </div>
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="2200">
         <img src="assets/Secondary_Staff.jpg" class="w-full h-full object-cover object-center" alt="Director and Secondary Staff">
         <div class="label"><div class="gold-text serif text-xl font-bold">Secondary Staff</div><div class="text-sm text-white/80">Director and Secondary Staff</div></div>
       </div>
-      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="300">
+      <div class="gallery-item h-[400px] shadow-lg gold-border glow-hover" data-aos="fade-up" data-aos-delay="2300">
         <img src="assets/Office_Staff.jpg" class="w-full h-full object-cover object-center" alt="Director and Office Staff">
         <div class="label"><div class="gold-text serif text-xl font-bold">Office Staff</div><div class="text-sm text-white/80">Director and Office Staff</div></div>
       </div>
@@ -430,7 +787,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="section-title" data-aos="fade-up">Get In <span class="gold-text">Touch</span></h2>
     <div class="gold-divider"></div>
-    <div class="grid lg:grid-cols-2 gap-10">
+    <div id="contact-grid" class="grid lg:grid-cols-2 gap-10">
       <div data-aos="fade-right" class="space-y-6">
         <div class="glass rounded-2xl p-6 flex gap-4 items-start">
           <div class="w-12 h-12 gold-bg rounded-xl flex items-center justify-center flex-shrink-0" style="color:#06153A"><i class="fa-solid fa-location-dot"></i></div>
@@ -468,7 +825,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 <!-- FOOTER -->
 <footer class="pt-20 pb-8 royal-bg border-t border-yellow-500/20">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+  <div id="footer-grid" class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
     <div class="lg:col-span-2">
       <div class="flex items-center gap-4 mb-5">
         <div class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-yellow-500/30 shadow-lg bg-white flex items-center justify-center p-0.5">
